@@ -141,7 +141,6 @@ class DB
 				$is_number 	= empty($item['is_number']) 	? 	false 		: $item['is_number']; 	  // is_number 기본 값 설정
 				// $is_zero 	= empty($item['is_zero']) 		? 	false 		: $item['is_zero']; 	  // is_zero 기본 값 설정
 				
-
 				$value = isset($request[$name]) ? $request[$name] : "";
 				
 				if($type === "like_space")
@@ -160,11 +159,11 @@ class DB
 				else if($type === "in")
 				{// 값이 포함된 경우 (쉼표로 구분, 전부 쌍따옴표로 감싸도 같은 결과임)
 					$result_value = array();
-					$value_list = $value === "" ? array() : explode(",", $value);
+					$opt_list = $value === "" ? array() : explode(",", $value);
 
-					for($i = 0; $i < count($value_list); $i++)
+					for($i = 0; $i < count($opt_list); $i++)
 					{
-						$temp_value = $value_list[$i];
+						$temp_value = $opt_list[$i];
 						$temp_value = $is_number ? $temp_value : "'{$temp_value}'";
 						array_push($result_value, $temp_value);
 					}

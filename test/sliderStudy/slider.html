@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- <link rel="stylesheet" href="css/jquery.bxslider.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../js/jquery.bxslider.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            var a = $('.slider').bxSlider({
+
+            auto: true, 
+            speed: 500, 
+            pause: 1000, 
+            mode:'fade', 
+            //'fade', 'horizontal', 'vertical' 기본 값 horizontal//
+            autoControls: true, 
+            pager:true,
+            captions: true
+
+        });
+        
+        $('.control .start').on('click', function(){
+            a.startAuto();
+        })
+
+        $('.control .pause').on('click', function(){
+            a.stopAuto();
+        })
+    });
+    </script>
+</head>
+<body>
+    <div class="slider">
+        <div><img src="../img/LakeMorain.jpg" title="하이"></div>
+        <div><img src="../img/RedSky.jpg" title="하이2"></div>
+        <div><img src="../img/Road.jpg" title="하이3"></div>
+        <div><img src="../img/Wallpaper_(33).jpg" title="하이3"></div>
+        <div><img src="../img/Wallpaper_(6).jpg" title="하이4"></div>
+    </div>
+    <div class="control">
+        <button class="start">시작</button>
+        <button class="pause">정지</button>
+    </div>
+</body>
+</html>

@@ -22,7 +22,7 @@
 
     /************************************************* 화면 노출 *************************************************/    
     require_once $PATH['SERVER_ROOT'] . $PREFIX['FRONT'] . $PREFIX['COMMON'] . "/layout/head.php";
-    // require_once $PATH['SERVER_ROOT'] . $PREFIX['FRONT'] . $PREFIX['COMMON'] . "/layout/header.php";
+    require_once $PATH['SERVER_ROOT'] . $PREFIX['FRONT'] . $PREFIX['COMMON'] . "/layout/header.php";
     // require_once $PATH['SERVER_ROOT'] . "/head.php";
     // require_once $PATH['SERVER_ROOT'] . "/header.php";
 
@@ -473,3 +473,4 @@
 
 </script>
 <!-- SCRIPT END -->
+<?php require_once $PATH['SERVER_ROOT'] . $PREFIX['FRONT'] . $PREFIX['COMMON'] . "/layout/footer.php"; ?>

@@ -3,6 +3,8 @@ namespace util;
 
 require_once "{$_SERVER['DOCUMENT_ROOT']}/config.php";
 
+// https://docs.google.com/spreadsheets/d/1Dnqq-q77TfKFxzUxB5ai7hIV0kMjIz__dE3GA2tAAo4/edit#gid=650532241
+
 class Front
 {
 	/******************** VIEW 함수 ********************/
@@ -144,7 +146,7 @@ class Front
 
 							array_push($result_list['head'], 			"<th class='tr-item'>{$item['name']}</th>");
 							array_push($result_list['create_data'], 	", data['{$item['key']}']");
-							array_push($result_list['create_index'], 	"<td class='tr-item' data-item_key='{$item['key']}'>{{$result_list['count']}}</td>\\");
+							array_push($result_list['create_index'], 	"<td class='tr-item' title='{{$result_list['count']}}' data-item_key='{$item['key']}'>{{$result_list['count']}}</td>\\");
 						}
 
 						break;
@@ -431,25 +433,29 @@ class Front
 					if($page_type === "upload")
 					{// 등록페이지인 경우
 
-						$item['type'] 		= empty($item['type']) 			? "text" 	: $item['type']; // type 기본 값 설정
-						$item['default'] = empty($item['default']) 	? "" 		: $item['default']; // 기본 값
-						$item['placeholder'] = empty($item['placeholder']) 	? "" 		: $item['placeholder']; // placeholder					
-						$item['value_list'] = empty($item['value_list']) 	? "" 		: $item['value_list']; // value_list 기본 값 설정
-
-						$item['is_excel'] = isset($item['is_excel']) 	? 'excel_item' 		: 'excel_item'; // 엑셀 자동생성 여부 설정 (기본값-true)
-						$item['excel_default'] = empty($item['excel_default']) 	? "" 		: $item['excel_default']; // 엑셀 기본 값					
-						$item['excel_description'] = empty($item['excel_description']) 	? "" 		: $item['excel_description']; // 엑셀 설명
+						$item['type'] 				= empty($item['type']) 				? "text" 		: $item['type']; // type 기본 값 설정
+						$item['default'] 			= isset($item['default']) == false 	? "" 			: $item['default']; // 기본 값
 						
-						if(isset($item['type']) && ($item['type'] === "text" || $item['type'] === "text"))
+						$item['name'] 				= empty($item['name']) 				? $item['type'] : $item['name']; // name 기본 값 설정
+						$item['is_hide'] 			= empty($item['is_hide']) 			? "" 			: "fit-hide"; // is_hide
+						$item['alert_title'] 		= empty($item['alert_title']) 		? "{$item['name']} 값을 등록해주세요." 			: $item['alert_title']; // alert_title
+						$item['placeholder'] 		= empty($item['placeholder']) 		? "" 			: $item['placeholder']; // placeholder
+						$item['value_list'] 		= empty($item['value_list']) 		? "" 			: $item['value_list']; // value_list 기본 값 설정
+
+						$item['is_excel'] 			= isset($item['is_excel']) 			? 'excel_item' 	: ''; // 엑셀 자동생성 여부 설정 (기본값-true)
+						$item['excel_default'] 		= empty($item['excel_default']) 	? "" 			: $item['excel_default']; // 엑셀 기본 값					
+						$item['excel_description'] 	= empty($item['excel_description']) ? "" 			: $item['excel_description']; // 엑셀 설명
+						
+						if(isset($item['type']) && $item['type'] === "text")
 						{// 텍스트
 							$item['is_number'] = empty($item['is_number']) 	? "" 		: "data-option='number' onkeyup='vaildateNumber(this);'"; // 엑셀 자동생성 여부 설정
 							$item['is_comma'] = empty($item['is_comma']) 	? "" 		: "data-is_comma='true'"; // 엑셀 자동생성 여부 설정
 
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='upload-input'>
-										<input type='text' data-{$page_type}_key='{$item['key']}' value='{$item['default']}' title='{$item['placeholder']}' placeholder='{$item['placeholder']}' {$item['is_number']} {$item['is_comma']}/>
+										<input type='text' data-{$page_type}_key='{$item['key']}' value='{$item['default']}' title='{$item['alert_title']}' placeholder='{$item['placeholder']}' {$item['is_number']} {$item['is_comma']}/>
 									</div>
 								</div>
 							";
@@ -458,11 +464,20 @@ class Front
 						{// textarea
 
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='upload-input'>
-										<textarea data-{$page_type}_key='{$item['key']}' title='{$item['placeholder']}' placeholder='{$item['placeholder']}'>{$item['default']}</textarea>
+										<textarea data-{$page_type}_key='{$item['key']}' title='{$item['alert_title']}' placeholder='{$item['placeholder']}'>{$item['default']}</textarea>
 									</div>
+								</div>
+							";
+						}
+						else if(isset($item['type']) && $item['type'] === "editor")
+						{// editor
+							$str_item = "
+								<div class='upload-item upload-detail {$item['is_hide']}'>
+									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
+									<div class='upload-input editor-content' type='text' placeholder='{$item['placeholder']}' data-{$page_type}_key='{$item['key']}'> </div>
 								</div>
 							";
 						}
@@ -480,7 +495,7 @@ class Front
 
 									array_push($option_list, "
 										<label class='option-check'>
-											<input type='radio' required name='{$item['key']}' data-{$page_type}_key='{$item['key']}' value='{$opt['value']}' title='{$item['placeholder']}' placeholder='{$item['placeholder']}' {$checked}>
+											<input type='radio' required name='{$item['key']}' data-{$page_type}_key='{$item['key']}' value='{$opt['value']}' title='{$item['alert_title']}' placeholder='{$item['placeholder']}' {$checked}>
 											{$opt['text']}
 										</label>
 									");
@@ -488,7 +503,7 @@ class Front
 							}
 							$str_opt = join("", $option_list);
 							$str_item = "
-								<div class='upload-item'>
+								<div class='upload-item {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									{$str_opt}
 								</div>
@@ -511,7 +526,7 @@ class Front
 							}
 							$str_opt = join("", $option_list);
 							$str_item = "
-								<div class='upload-item'>
+								<div class='upload-item {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<select data-{$page_type}_key='{$item['key']}' data-event_type='change'>
 										{$str_opt}
@@ -522,12 +537,12 @@ class Front
 						else if(isset($item['type']) && $item['type'] === "date")
 						{// 날짜 (단일)
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='item-dater'>
 										<div class='dater-item'>
 											<i class='xi-calendar'></i>
-											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['placeholder']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='ex) 2021-08-16 17:00:00' />
+											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['alert_title']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='ex) 2021-08-16 17:00:00' />
 										</div>
 									</div>
 								</div>
@@ -537,17 +552,17 @@ class Front
 						{// 날짜 (시작-끝)
 
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='item-dater'>
 										<div class='dater-item'>
 											<i class='xi-calendar'></i>
-											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['placeholder']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']} 시작일' data-excel_intro='ex) 2021-08-16 17:00:00' />
+											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['alert_title']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']} 시작일' data-excel_intro='ex) 2021-08-16 17:00:00' />
 										</div>
 										<div class='dater-item'>~</div>
 										<div class='dater-item'>
 											<i class='xi-calendar'></i>
-											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['placeholder']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']} 마감일' data-excel_intro='ex) 2021-08-16 17:00:00' />
+											<input type='text' class='datepicker {$item['is_excel']}' data-{$page_type}_key='{$item['key']}' autocomplete='off' title='{$item['alert_title']}' placeholder='{$item['placeholder']}' readonly  data-excel_type='date' data-excel_key='{$item['key']}' data-excel_name='{$item['name']} 마감일' data-excel_intro='ex) 2021-08-16 17:00:00' />
 										</div>
 									</div>
 								</div>
@@ -555,7 +570,7 @@ class Front
 						}
 						else if(isset($item['type']) && $item['type'] === "image")
 						{// 단일 이미지 (ex. 썸네일)
-							$item['description'] = $item['description'] === "" ? "사진은 등록페이지에서 등록해주세요." : $item['description']; // 엑셀 설명
+							$item['excel_description'] = $item['excel_description'] === "" ? "사진은 등록페이지에서 등록해주세요." : $item['excel_description']; // 엑셀 설명
 							$item['view_type'] = empty($item['view_type']) 	? "bg" 		: $item['view_type']; // 'bg' or 'list'
 							$item['width'] = empty($item['width']) 	? "100" 		: $item['width']; // 이미지 너비
 							$item['height'] = empty($item['height']) 	? "100" 		: $item['height']; // 이미지 높이
@@ -563,17 +578,21 @@ class Front
 							$item['size'] = empty($item['size']) 	? 20 		: $item['size']; // 허용 파일 사이즈
 							
 							/***** 이미지 등록 안내 *****/
-							$str_intro = "";
+							$str_intro = array();
 
-							for($k = 0; $k < count($item['intro_list']); $k++)
+							if(isset($item['intro_list']))
 							{
-								$intro = $item['intro_list'][$k];
-								array_push($str_intro, "<p>* {$intro}</p>");
+								for($k = 0; $k < count($item['intro_list']); $k++)
+								{
+									$intro = $item['intro_list'][$k];
+									array_push($str_intro, "<p>* {$intro}</p>");
+								}
 							}
+							$str_intro = join("<br/>", $str_intro);
 							/***** 이미지 등록 안내 끝 *****/
 
 							$str_item = "
-								<div class='upload-item upload-thumb'>
+								<div class='upload-item upload-thumb {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='upload-input' >
 										<div class='dater-item image-bg_cont' style='margin-right:20px;width:{$item['width']};height:{$item['height']};'>
@@ -585,8 +604,9 @@ class Front
 											</div>
 										</div>
 										<div class='img-txt'>
-											<p>* 최적 사이즈 {$item['width']}x{$item['height']}</p>
-											<p>* 파일 형식 {$item['format']}</p>
+											<p>* 권장 사이즈 {$item['width']}x{$item['height']}</p>
+											<p>* 허용 파일형식 {$item['format']}</p>
+											<p>* 최대 파일크기 {$item['size']}MB</p>
 											{$str_intro}
 										</div>
 									</div>
@@ -596,34 +616,38 @@ class Front
 						else if(isset($item['type']) && ($item['type'] === "file_list" || $item['type'] === "image_list"))
 						{// 다중 이미지 or 파일 (list-create에서 컨트롤함.)
 							$item['excel_description'] = $item['excel_description'] === "" ? "사진은 등록페이지에서 등록해주세요." : $item['excel_description']; // 엑셀 설명
-							$item['view_type'] = empty($item['view_type']) 	? "bg" 		: $item['view_type']; // 'bg' or 'list'
+							$item['view_type'] = empty($item['view_type']) 	? "list" 		: $item['view_type']; // 'bg' or 'list'
 							$item['width'] = empty($item['width']) 	? "100" 		: $item['width']; // 이미지 너비
 							$item['height'] = empty($item['height']) 	? "100" 		: $item['height']; // 이미지 높이
 							$item['format'] = empty($item['format']) 	? "" 		: $item['format']; // 허용 파일 포맷
 							$item['size'] = empty($item['size']) 	? 20 		: $item['size']; // 허용 파일 사이즈
-							$item['target_flag'] = empty($item['target_flag']) 	? "list" 		: $item['target_flag']; // 파일의 부모 구분 값
+							$item['target_flag'] = empty($item['target_flag']) 	? "" 		: $item['target_flag']; // 파일의 부모 구분 값
 							
 							/***** 이미지 등록 안내 *****/
 							$str_intro = array();
 
-							for($k = 0; $k < count($item['intro_list']); $k++)
+							if(isset($item['intro_list']))
 							{
-								$intro = $item['intro_list'][$k];
-								array_push($str_intro, "<p>* {$intro}</p>");
+								for($k = 0; $k < count($item['intro_list']); $k++)
+								{
+									$intro = $item['intro_list'][$k];
+									array_push($str_intro, "<p>* {$intro}</p>");
+								}
 							}
 							$str_intro = join("<br/>", $str_intro);
 							/***** 이미지 등록 안내 끝 *****/
 
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit {$item['is_excel']}' data-excel_default='{$item['excel_default']}' data-excel_type='{$item['type']}' data-excel_key='{$item['key']}' data-excel_name='{$item['name']}' data-excel_intro='{$item['excel_description']}' >{$item['name']}</label>
 									<div class='upload-input image-bg_cont'>
 										<input id='file-{$item['key']}' class='fit-hide' accept='{$item['format']}' type='file' multiple='multiple' data-view_type='{$item['view_type']}' data-file_format='{$item['format']}' data-file_size='{$item['size']}' data-file_key='{$item['key']}' data-method='change_file_list' data-method_event='change'/>
 										<div class='file-btn'>
 											<label for='file-{$item['key']}' class='pi-upload'>업로드</label>
 											<div class='img-txt'>
-												<p>* 최적 사이즈 {$item['width']}x{$item['height']}</p>
-												<p>* 파일 형식 {$item['format']}</p>
+												<p>* 권장 사이즈 {$item['width']}x{$item['height']}</p>
+												<p>* 허용 파일형식 {$item['format']}</p>
+												<p>* 최대 파일크기 {$item['size']}MB</p>
 												{$str_intro}
 											</div>
 										</div>
@@ -640,6 +664,9 @@ class Front
 
 						$item['type'] 		= empty($item['type']) 			? "text" 	: $item['type']; // type 기본 값 설정
 						
+						$item['name'] 				= empty($item['name']) 				? $item['type'] : $item['name']; // name 기본 값 설정
+						$item['is_hide'] 			= empty($item['is_hide']) 			? "" 			: "fit-hide"; // is_hide
+						
 						if(isset($item['type']) && 
 							($item['type'] === "text")
 							|| ($item['type'] === "radio")
@@ -649,7 +676,7 @@ class Front
 						)
 						{// 텍스트, 라디오, 셀렉트, 날짜인 경우
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit'>{$item['name']}</label>
 									<div class='upload-input'>
 										<span data-{$page_type}_key='{$item['key']}'></span>
@@ -657,10 +684,10 @@ class Front
 								</div>
 							";
 						}
-						else if(isset($item['type']) && $item['type'] === "textarea")
-						{// textarea
+						else if(isset($item['type']) && ($item['type'] === "textarea" || $item['type'] === "editor"))
+						{// textarea || editor
 							$str_item = "
-								<div class='upload-item upload-title'>
+								<div class='upload-item upload-title {$item['is_hide']}'>
 									<label class='upload-tit'>{$item['name']}</label>
 									<div class='upload-input'>
 										<pre data-{$page_type}_key='{$item['key']}'></pre>
@@ -671,11 +698,12 @@ class Front
 						else if(isset($item['type']) && $item['type'] === "image")
 						{// 이미지인 경우
 							$str_item = "
-								<div class='upload-item upload-thumb'>
+								<div class='upload-item upload-thumb {$item['is_hide']}'>
 									<label class='upload-tit'>{$item['name']}</label>
 									<div class='upload-input'>
 										<div class='dater-item image-bg_cont' style='margin-right:20px;'>
 											<button class='image-bg_set_btn bg' data-image_canvas='{$item['key']}'></button>
+											<input class='fit-hide' data-file_key='{$item['key']}' type='file' />
 										</div>
 									</div>
 								</div>
@@ -686,7 +714,7 @@ class Front
 							$item['target_flag'] = empty($item['target_flag']) 	? "list" 		: $item['target_flag']; // 파일의 부모 구분 값
 
 							$str_item = "
-								<div class='upload-item upload-thumb'>
+								<div class='upload-item upload-thumb {$item['is_hide']}'>
 									<label class='upload-tit'>{$item['name']}</label>
 									<div class='upload-input image-bg_cont'>
 										<div class='item-file-list' data-image_canvas='{$item['key']}' id='list-getFileList{$item['target_flag']}-{$item['key']}'>
@@ -697,6 +725,17 @@ class Front
 						}
 						else if(isset($item['type']) && $item['type'] === "file_list")
 						{// 파일 목록인 경우
+							$item['target_flag'] = empty($item['target_flag']) 	? "list" 		: $item['target_flag']; // 파일의 부모 구분 값
+
+							$str_item = "
+								<div class='upload-item upload-thumb {$item['is_hide']}'>
+									<label class='upload-tit'>{$item['name']}</label>
+									<div class='upload-input image-bg_cont'>
+										<div class='item-file-list' data-image_canvas='{$item['key']}' id='list-getFileList{$item['target_flag']}-{$item['key']}'>
+										</div>
+									</div>
+								</div>
+							";
 							
 						}
 					}

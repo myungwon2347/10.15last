@@ -1,0 +1,60 @@
+[2021-10-15 19:31:42] ["/api/admin/board.php"] [uploadBoard] [::1] [관리자(1074)]
+
+UPDATE `board` SET
+	`type` = 'profile'
+	,	`title` = 'test1111'
+	,	`content` = '<p><img src="/upload/image/board/editor/app_notice_20211015184454Bjt.jpg" style="width: 320px;" data-filename="2356">twat11</p>'
+	,	`notice_status` = 0
+	,	`view_status` = 1
+	,	update_date = NOW()
+WHERE
+	idx = 179
+	
+
+[2021-10-15 19:31:52] ["/api/admin/board.php"] [uploadBoard] [::1] [관리자(1074)]
+
+UPDATE `board` SET
+	`type` = 'profile'
+	,	`notice_status` = 0
+	,	`view_status` = 1
+	,	update_date = NOW()
+WHERE
+	idx = 179
+	
+
+[2021-10-15 19:31:57] ["/api/admin/board.php"] [uploadBoard] [::1] [관리자(1074)]
+
+UPDATE `board` SET
+	`type` = 'profile'
+	,	`title` = 'test1111'
+	,	`content` = '<p><img src="/upload/image/board/editor/app_notice_20211015184454Bjt.jpg" style="width: 320px;" data-filename="2356">twat11121</p>'
+	,	`notice_status` = 0
+	,	`view_status` = 1
+	,	update_date = NOW()
+WHERE
+	idx = 179
+	
+
+[2021-10-15 19:32:02] ["/api/admin/board.php"] [uploadBoard] [::1] [관리자(1074)]
+
+UPDATE `board` SET
+	`type` = 'profile'
+	,	`title` = 'test1111'
+	,	`content` = '<p><img src="/upload/image/board/editor/app_notice_20211015184454Bjt.jpg" style="width: 320px;" data-filename="2356">twat1112133</p>'
+	,	`notice_status` = 0
+	,	`view_status` = 1
+	,	update_date = NOW()
+WHERE
+	idx = 179
+	
+
+[2021-10-15 19:32:08] ["/api/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			UPDATE `board` SET
+				hit = hit + 1 
+			WHERE
+				idx = 179
+				
+				
+		
+

@@ -1,0 +1,47 @@
+/* dropzone */
+.dz-browser-not-supported.dropzone-box{width:auto!important;min-height:auto!important;cursor:default!important;-webkit-transition:none;transition:none;border:none!important;border-radius:0!important;padding:0!important;}
+.dropzone-box{position:relative;width:100%;min-height:288px;cursor:pointer;border:3px dashed rgba(0,0,0,.05);border-radius:2px;padding:0 16px 16px 0;min-height:100px; text-align:left; }
+.dz-default.dz-message,.dz-upload-icon{position:absolute;-webkit-transform:translateY(-50%) scale(1);-ms-transform:translateY(-50%) scale(1);top:50%;}
+.dz-remove,.dz-thumbnail{border-top:1px solid rgba(0,0,0,.05);text-align:center;}
+.dz-default.dz-message{right:16px;left:16px;padding-left:80px;transform:translateY(-50%) scale(1);font-size:20px;font-weight:600;line-height:22px;color:#555;z-index:1;}
+.dz-default.dz-message .dz-text-small{font-size:14px;font-weight:400;}
+.dz-nopreview,.dz-size{color:#a1a7ab;font-size:11px;}
+.dz-upload-icon{left:0;width:64px;height:64px;transform:translateY(-50%) scale(1);border-radius:2px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEgUlEQVR4Xu1ai1EUQRDtjkCNQIhAjECIQI1AiECIQIxAiECIQIhAiECJQIhAjKCtd9VzNdc3/53do7idqqu6qp1fv3n9uqd3mba88ZbbTzMAMwO2HIHZBbacALMIzi7QywVE5CURvSeiD0SE//jtefPfENE9Ef0momtmxv+Nt8EMEBEY/JmI9iutARBnzHxZOa5r92YARAQGf2kw3BoAJhwxMxgyeWsCQES+EdFx592CDSed58xOVwWA+vmPxKnfEdGF+vkjM4PmJCI7RIQfWAOXeRPZGfofMPNjduedOhQDoMb/NMLmtgE/Pi0VNgXklIg+BeyYFIQaAGC8FboHIjps9V/VETDmtQFiMhCKABCRM1V6f5+3oPNQuiqzIIDWLc6ZubfOrBEuC4CeEk5/xXhmrg17Sa8VEYDwznQC8Mgl8ENegQZ9AEPQ/7LU7WKLlwBgqQ/a7w09ebuhBBNycgcgvra6YRIAETkkou9mB1DpUWJ2hG05ANzzpjCaA+BK09ul2jMzQBmtiQhEMRQdStasFs8oAErJv2bV3aE+l7NCQ+Qf7QehBSA3bl0RcZqAg7CagWFVIKQAsPS/Y2b/cpOzpfm5iIB5yCsWiVSsJcJocQRJAWCpeMLMUOUn1RLiWaRVKQBsWCqacBPoKAhgi59QwW0OcvtJAQA/RP7u2tscJXOLjfk8EkGQbidzhSAARogW+2bmbM4wpoElc0eSKQyFOyNXWCvCrBmlsR/XXZd5jQaArgVwscHBLZK3uHmRQaLuAIFdthUAMhO86pn9Gcp20RcNkb8ySAKEJeBLABLGI/WF+l/0AkA3ihTbz+8BQjLslVJE58ddBZcpe9PENEsQFgCozwM5n/b/NBZ3DX2JukJVAlMBBkCAS/sN7oCk7tEBYGM+jN/vdSL+ygmhQrei0FVqvOsXcQ1Eh0MOKT4RjZL0FOb5cLWjWiNz/UUkxIRdAGAfPDCzH/9zcxc9zwisnWNFqIoWKOgkIgiDviacAACb8XU//cZrbpfIYNzPHvY1AMCNzxe/rje+gOIXnNWiC4SqW2RQscdlzg+T9wBAVhKDjhlfppJcAkT3yLBm78gAhOp8JYb7fbpGhhAAQNmvyHa59BQqfikYXSJDIBzewQVs2au7CBohWnE5i8CYl65AxFuIoFXGe2beLT2a2n6WghMDYK/4izCImO9qcG4/o7FgUwBEEyEND6FKbBctsCe8CQCSqbACABZADF+YDR8z83ktzVP9pwZARPDxhr3Q4a6zs7wMKQh4bY1X37YhfcQEtz0uR1MAoCeOkjn0LZTWf3SFkZqCSBMRrKrXApDr37CpcEHETaTf/EATrDs0rLVeS8wZVAtYxaZAe7zKj5fEPBBAm9gHDBVrPhkA8AEH9Gzty5Pcu0EAAW1AeQn/Y5+2REGpPdHa/pGF8akOtAup+FXqdd7kpe5aF6iiW0PnGYAG0AYNmRlg6g9T3gVCJze7wCA+NwzeehdowGzUIZO7wKjWNEw+A9AA2rMaMjPgWR1ngzEzAxpAe1ZDtp4B/wGmkx9uXKTG5wAAAABJRU5ErkJggg==);background-repeat:no-repeat;background-position:center center;background-size:32px 32px;}
+.dz-preview{box-sizing:content-box;cursor:default;vertical-align:top;border:1px solid rgba(0,0,0,.05);margin:16px 0 0 16px;padding:8px 10px 10px;}
+.dz-filename{overflow:hidden;display:none;}
+.dz-size{padding-bottom:8px;font-style:italic;display:none;}
+.dz-thumbnail{position:relative;-webkit-box-sizing:content-box;box-sizing:content-box;height:100px;border-bottom:1px solid rgba(0,0,0,.05);background:transparent;margin:0 -10px;padding:10px;width: 120px; display:inline-block;}
+.dz-thumbnail .dz-nopreview,.dz-thumbnail>img{position:relative;top:50%;display:block;-webkit-transform:translateY(-50%) scale(1);-ms-transform:translateY(-50%) scale(1);transform:translateY(-50%) scale(1);margin:0 auto;}
+.dz-thumbnail>img{max-width:100%;max-height:100%;}
+.daterangepicker.dropdown-menu,.note-popover,.note-popover.note-air-popover{max-width:none;}
+.dz-preview .progess-bar,.dz-preview .progress{height:8px;}
+.dz-preview .progress{margin:8px 0 0;}
+.dz-remove{display:block;color:#444;font-size:10px;font-weight:600;margin:8px -10px -10px;padding:8px 0;}
+.dz-remove:focus,.dz-remove:hover{text-decoration:none;color:#fff;border-top-color:transparent;background:#e46050;}
+.dz-error-mark,.dz-error-message,.dz-success-mark{position:absolute;top:-1px;right:-1px;bottom:-1px;left:-1px;display:none;background-color:rgba(0,0,0,.2);overflow:auto;text-align:center;color:#fff;font-weight:600;padding:12px;}
+.dz-error-mark,.dz-success-mark{background-repeat:no-repeat;background-position:center center;background-size:36px 36px;}
+.dz-success-mark{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0088'%3E%3Cpath fill='%235cb85c' d='M2.36.73L.64.53c-.4-1.04.46-1.41.1-.8l1.11.43.4-3.8c.6-.631.6-.271.2.7l-44.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");}
+
+.progress{height:21px;margin-bottom:21px;background-color:#eee;border-radius:2px;-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.1);}
+.progress-bar{border:none;float:left;width:0;height:100%;font-size:12px;line-height:21px;color:#fff;text-align:center;background-color:#337ab7;-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);-webkit-transition:width .6s ease;transition:width .6s ease;}
+.progress-bar-striped,.progress-striped .progress-bar{background-image:linear-gradient(45deg,rgba(255,255,255,.1) 25% transparent 25% transparent 50% rgba(255,255,255,.1) 50% rgba(255,255,255,.1) 75% transparent 75% transparent);background-size:10px 10px;}
+.progress-bar-striped.active,.progress-striped .progress-bar.active{-webkit-animation-duration:2s;animation-duration:2s;}
+.progress .progress-bar.progress-bar-success{background-color:#78bd5d;}
+
+.dz-preview .progess-bar,.dz-preview .progress{height:8px;}
+.dz-preview .progress{margin:8px 0 0;}
+.alert-warning.alert-dark,.progress .progress-bar.progress-bar-warning,.select2-warning .select2-selection__choice,.select2-warning+.select2-container .select2-selection__choice{background-color:#f4ab43;}
+.alert-warning.alert-dark hr,.panel-warning.panel-dark.panel-body-colorful .list-group-item,.panel-warning.panel-dark.panel-body-colorful .panel-body,.panel-warning.panel-dark.panel-body-colorful .panel-footer,.panel-warning.panel-dark.panel-body-colorful .panel-heading,.panel-warning.panel-dark.panel-body-colorful hr,.panel-warning.panel-dark.panel-body-colorful table,.panel-warning.panel-dark.panel-body-colorful table td,.panel-warning.panel-dark.panel-body-colorful table th,.panel-warning.panel-dark.panel-body-colorful table tr{border-color:#f8cb8b!important;}
+.alert-danger.alert-dark,.progress .progress-bar.progress-bar-danger,.select2-danger .select2-selection__choice,.select2-danger+.select2-container .select2-selection__choice{background-color:#e46050;}
+.alert-danger.alert-dark hr,.panel-danger.panel-dark.panel-body-colorful .list-group-item,.panel-danger.panel-dark.panel-body-colorful .panel-body,.panel-danger.panel-dark.panel-body-colorful .panel-footer,.panel-danger.panel-dark.panel-body-colorful .panel-heading,.panel-danger.panel-dark.panel-body-colorful hr,.panel-danger.panel-dark.panel-body-colorful table,.panel-danger.panel-dark.panel-body-colorful table td,.panel-danger.panel-dark.panel-body-colorful table th,.panel-danger.panel-dark.panel-body-colorful table tr{border-color:#ee9c92!important;}
+.alert-success.alert-dark,.progress .progress-bar.progress-bar-success,.select2-success .select2-selection__choice,.select2-success+.select2-container .select2-selection__choice{background-color:#78bd5d;}
+.alert-success.alert-dark hr,.panel-success.panel-dark.panel-body-colorful .list-group-item,.panel-success.panel-dark.panel-body-colorful .panel-body,.panel-success.panel-dark.panel-body-colorful .panel-footer,.panel-success.panel-dark.panel-body-colorful .panel-heading,.panel-success.panel-dark.panel-body-colorful hr,.panel-success.panel-dark.panel-body-colorful table,.panel-success.panel-dark.panel-body-colorful table td,.panel-success.panel-dark.panel-body-colorful table th,.panel-success.panel-dark.panel-body-colorful table tr{border-color:#a5d393!important;}
+.alert-info.alert-dark,.progress .progress-bar.progress-bar-info,.select2-info .select2-selection__choice,.select2-info+.select2-container .select2-selection__choice{background-color:#59c4e4;}
+
+
+.dz-error-message{}
+.dz-remove{ background-color:#146bb0; color:white; }
+.dz-default.dz-message{ padding-left:0px; text-align:center;}
+.dz-preview, .dz-thumbnail{ width: 120px; display:inline-block;z-index:100;}
+#dropzonejs{ margin:20px 0; }
+.dz-error-mark, .dz-error-message, .dz-success-mark{ background-color: rgba(255, 255, 255, 0); }

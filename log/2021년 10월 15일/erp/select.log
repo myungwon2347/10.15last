@@ -1,0 +1,7107 @@
+[2021-10-15 19:12:22] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:12:22] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:12:22] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:12:22] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:12:22] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:12:22] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:12:25] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:18:21] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:18:24] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 1
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:18:36] ["/view/admin/page/popup/list.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:18:37] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 1
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 1
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:37] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:19:50] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 1
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:21:35] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:29:15] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:29:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:29:42] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:29:42] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:29:42] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:29:42] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:29:42] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:29:46] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_type
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_type
+         
+
+[2021-10-15 19:29:46] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_name
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_name
+         
+
+[2021-10-15 19:29:46] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 browser
+             FROM
+                 `visiter`
+             GROUP BY
+                 browser
+         
+
+[2021-10-15 19:29:46] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:29:50] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 20
+	    
+
+[2021-10-15 19:29:51] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 40
+	    
+
+[2021-10-15 19:29:51] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 60
+	    
+
+[2021-10-15 19:30:02] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                AND device_name = 'Android'
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:03] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:04] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:05] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:07] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                AND (ip LIKE '%d1%' OR replace(ip, ' ', '') LIKE '%d1%')
+                
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:07] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                AND (ip LIKE '%d1%' OR replace(ip, ' ', '') LIKE '%d1%')
+                AND (referer LIKE '%23%' OR replace(referer, ' ', '') LIKE '%23%')
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:08] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                AND (ip LIKE '%d1%' OR replace(ip, ' ', '') LIKE '%d1%')
+                AND (referer LIKE '%23%' OR replace(referer, ' ', '') LIKE '%23%')
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-22' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:10] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                AND (ip LIKE '%d1%' OR replace(ip, ' ', '') LIKE '%d1%')
+                AND (referer LIKE '%23%' OR replace(referer, ' ', '') LIKE '%23%')
+                
+                
+                AND device_type = 'PC'
+                AND device_name = 'Android'
+                AND browser = 'Chrome'
+                AND (DATE(visit_date) BETWEEN '2020-10-22' AND '2021-10-28')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:30:11] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:30:12] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:30:13] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                365
+        
+
+[2021-10-15 19:30:14] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                1095
+        
+
+[2021-10-15 19:30:14] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                7
+        
+
+[2021-10-15 19:30:14] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_type
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_type
+         
+
+[2021-10-15 19:30:14] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_name
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_name
+         
+
+[2021-10-15 19:30:14] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 browser
+             FROM
+                 `visiter`
+             GROUP BY
+                 browser
+         
+
+[2021-10-15 19:30:14] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:30:16] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:30:21] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:30:28] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:30:30] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:30:30] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:30:34] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:30:36] ["/api/admin/popup.php"] [getPopup] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						idx = 1
+				)
+			AS mt
+		
+
+[2021-10-15 19:30:36] ["/api/admin/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				AND ref_idx = 1
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:33] ["/api/admin/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+				)
+			AS mt
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:35] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:31:37] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:31:37] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:42] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:31:44] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 177
+				)
+			AS mt
+		
+
+[2021-10-15 19:31:44] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 177
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:46] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:31:47] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:31:47] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:52] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:31:54] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:31:54] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:31:57] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:31:58] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:31:58] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:32:02] ["/api/admin/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						board
+					WHERE
+						1 = 1
+						
+						
+						
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:32:04] ["/api/admin/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+				)
+			AS mt
+		
+
+[2021-10-15 19:32:04] ["/api/admin/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:32:07] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:32:08] ["/api/board.php"] [getBoard] [::1] [관리자(1074)]
+
+			SELECT
+				mt.*
+				,	fi2.path AS thumbnail
+				,	IFNULL(me.nickname, '-') AS reg_user_name
+			FROM
+				(
+
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						idx = 179
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			LEFT OUTER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+		
+
+[2021-10-15 19:32:08] ["/api/board.php"] [getFileListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('board')
+				
+				AND ref_idx = 179
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:32:10] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:19] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:32:21] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:22] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:32:23] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:23] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:32:40] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT
+				*
+			FROM
+				etc
+			WHERE
+				1 = 1
+				
+				
+				AND status = 1
+		
+
+[2021-10-15 19:32:40] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+			SELECT DISTINCT
+				`type`
+			FROM
+				etc
+			WHERE
+				`type` IS NOT NULL
+				
+		
+
+[2021-10-15 19:32:41] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            
+            
+            ORDER BY order_num
+
+		
+
+[2021-10-15 19:32:41] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 1
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:32:41] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 3
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:32:41] ["/view/admin/page/visiter/statistics.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT SQL_CALC_FOUND_ROWS
+                *
+            FROM
+                (
+                    SELECT
+                        *
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx IS NULL
+                        AND view_status IN (1)
+                )
+            AS cmp
+            
+            	INNER JOIN
+                (
+                    SELECT
+                        *
+						,	parent_idx AS parent_idx2
+                    FROM
+                        `manage_page`
+                    WHERE
+                        parent_idx = 8
+                        AND view_status IN (1)
+                )
+            AS cmp2
+            ON cmp2.parent_idx = cmp.idx
+        
+            
+            ORDER BY cmp.order_num, cmp2.order_num
+
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:41] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:32:42] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:32:43] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:43] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:43] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:44] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:44] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:44] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:32:45] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_type
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_type
+         
+
+[2021-10-15 19:32:45] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 device_name
+             FROM
+                 `visiter`
+             GROUP BY
+                 device_name
+         
+
+[2021-10-15 19:32:45] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+             SELECT
+                 browser
+             FROM
+                 `visiter`
+             GROUP BY
+                 browser
+         
+
+[2021-10-15 19:32:45] ["/api/admin/visiter.php"] [getVisitInfo] [::1] [관리자(1074)]
+
+	        SELECT SQL_CALC_FOUND_ROWS
+	        	*
+	        FROM
+                `visiter`
+            WHERE
+                1 = 1
+                
+                
+                
+                
+                
+                
+                
+                AND (DATE(visit_date) BETWEEN '2020-10-15' AND '2021-10-15')
+
+            GROUP BY ip
+
+            
+
+            ORDER BY visit_date desc
+
+            LIMIT 20 
+            OFFSET 0
+	    
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:32:46] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:35:02] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:35:04] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:35:06] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:35:06] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:35:06] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:35:06] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:37:13] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:37:13] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:37:13] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:37:13] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:38:38] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:38] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:38:38] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:38] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:38:42] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:42] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:38:42] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:42] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:38:48] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:38:48] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) AS count
+			FROM
+				(
+					SELECT
+						COUNT(*) AS cnt
+						, ip
+					FROM
+						`visiter`
+					GROUP BY
+						ip
+				) AS vl
+			WHERE vl.cnt > 1
+			ORDER BY
+				vl.cnt desc
+		
+
+[2021-10-15 19:38:48] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 0 DAY
+                )
+        
+		
+
+[2021-10-15 19:38:48] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(DISTINCT ip) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+            AND 
+                DATE_FORMAT(visit_date, '%Y-%m-%d') 
+                = 
+                DATE_SUB(
+                    DATE_FORMAT(NOW(), '%Y-%m-%d')
+                    , INTERVAL 1 DAY
+                )
+        
+		
+
+[2021-10-15 19:38:48] ["/api/admin/visiter.php"] [getVisitStatics] [::1] [관리자(1074)]
+
+			SELECT
+				COUNT(*) as count
+            FROM
+                `visiter`marketing_action_media
+            WHERE
+                1 = 1
+                
+		
+
+[2021-10-15 19:38:49] ["/api/admin/visiter.php"] [getVisitLog] [::1] [관리자(1074)]
+
+			SELECT
+                DATE_FORMAT(visit_date, '%Y-%m-%d') AS date
+                ,   COUNT(DISTINCT ip) AS count
+			FROM
+				`visiter`
+			GROUP BY
+				date
+			ORDER BY
+				date DESC
+			LIMIT
+                30
+        
+
+[2021-10-15 19:38:52] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:38:54] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:54] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:38:54] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:54] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:38:57] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:57] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:38:57] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:57] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:38:59] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:59] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:38:59] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:38:59] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:39:02] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:39:03] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:39:03] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:39:03] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:40:38] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:38] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:40:38] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:38] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:40:39] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:40] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:40:40] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:40] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:40:44] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:44] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:40:44] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:44] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:40:46] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+
+[2021-10-15 19:40:48] ["/api/popup.php"] [getListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`popup`
+					WHERE
+						1 = 1
+						
+						AND DATE(start_date) <= NOW()
+						AND DATE_ADD(DATE(end_date), INTERVAL 1 DAY) > NOW()
+				)
+			AS mt
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'popup'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+						
+			ORDER BY idx desc
+
+			LIMIT 20
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:48] ["/api/board.php"] [getListBoardNotice] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 1
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 20
+			OFFSET 0
+		
+
+[2021-10-15 19:40:48] ["/api/popup.php"] [getFileListPopup] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				idx
+				,	type
+				,	ref_table
+				,	ref_key
+				,	size
+				,	ref_idx
+				,	o_name
+				,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+				,	IFNULL(order_num, 0) AS order_num
+				,	IFNULL(value, '') AS value
+				,	hit
+			FROM
+				`files`
+			WHERE
+				1 = 1
+				
+				AND ref_table = LOWER('popup')
+				
+				
+
+				
+
+			ORDER BY ISNULL(order_num) ASC,	order_num ASC
+
+			LIMIT 100
+			OFFSET 0
+
+		
+
+[2021-10-15 19:40:48] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'common'
+						AND `notice_status` = 0
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 15
+			OFFSET 0
+		
+
+[2021-10-15 19:41:01] ["/api/board.php"] [getListBoard] [::1] [관리자(1074)]
+
+			SELECT SQL_CALC_FOUND_ROWS
+				mt.*
+				,	me.nickname AS reg_user_nickname
+				,	IFNULL(fi1.count, 0) AS is_image
+				,	fi2.path AS thumbnail
+			FROM
+				(
+					SELECT
+						*
+					FROM
+						`board`
+					WHERE
+						1 = 1
+						AND `type` = 'profile'
+						
+						AND `view_status` IN (1)
+				)
+			AS mt
+
+			INNER JOIN
+				(
+					SELECT
+						*
+					FROM
+						`member`
+					WHERE
+						1 = 1
+						
+				)
+			AS me
+			ON me.idx = mt.reg_user_idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        ref_idx
+						,	COUNT(*) AS count
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+					GROUP BY
+						ref_idx
+                )
+            AS fi1
+			ON fi1.ref_idx = mt.idx
+			
+			LEFT OUTER JOIN
+                (
+                    SELECT
+                        *
+                        ,	CONCAT('/', type, '/', ref_table, '/', ref_key, '/', n_name) AS path
+                    FROM
+						`files`
+                    WHERE
+						ref_table = 'board'
+						AND ref_key = 'thumbnail'
+					GROUP BY
+						ref_idx
+                )
+            AS fi2
+			ON fi2.ref_idx = mt.idx
+
+			WHERE
+				1 = 1
+				
+						
+			ORDER BY notice_status desc, order_num desc, idx desc
+
+			LIMIT 12
+			OFFSET 0
+		
+

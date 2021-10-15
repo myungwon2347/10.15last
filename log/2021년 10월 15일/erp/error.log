@@ -1,0 +1,48 @@
+[2021-10-15 19:29:46] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT
+                `idx`
+                ,   `key`
+                ,   `name`
+            FROM
+                `marketing_action_media`
+            WHERE
+                status = 1
+         
+[DB Error Content] - Table 'test.marketing_action_media' doesn't exist
+
+[[[],[]]]
+
+
+[2021-10-15 19:30:14] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT
+                `idx`
+                ,   `key`
+                ,   `name`
+            FROM
+                `marketing_action_media`
+            WHERE
+                status = 1
+         
+[DB Error Content] - Table 'test.marketing_action_media' doesn't exist
+
+[[[],[]]]
+
+
+[2021-10-15 19:32:45] ["/view/admin/page/visiter/visitlog.php"] [No Action] [::1] [관리자(1074)]
+
+            SELECT
+                `idx`
+                ,   `key`
+                ,   `name`
+            FROM
+                `marketing_action_media`
+            WHERE
+                status = 1
+         
+[DB Error Content] - Table 'test.marketing_action_media' doesn't exist
+
+[[[],[]]]
+
+

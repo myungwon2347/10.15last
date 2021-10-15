@@ -111,7 +111,7 @@ FITSOFT['REST_API'] = {
             {                
                 empty($view_state) ? "" : $view_state.addClass("disabled");
 
-            }else if(empty(res['data_list']) || res['data_list'].length < 1)
+            }else if(res['data_list'].length < 1)
             {
                 empty($view_state) ? "" : $view_state.removeClass("disabled");
 
@@ -605,10 +605,10 @@ function setEditAndFile(params, datas)
     var ref_table = empty(datas) ? "" : datas['ref_table'];
     
     /*************************** 에디터 이미지 처리 ***************************/ 
-    if($('.editor-content').length > 0)
+    if($('#editor-content').length > 0)
     {// 에디터가 생성된 경우에만 호출.
         // 현재 에디터에 등록된 이미지 가져오기
-        var current_editor_image_idx = $('.editor-content').next('.note-editor').find('.note-editable').find('img');        
+        var current_editor_image_idx = $('#editor-content').next('.note-editor').find('.note-editable').find('img');        
         current_editor_image_idx = getSummerNoteImgList(current_editor_image_idx);
 
         // 에디터에서 삭제된 이미지 idx 가져오기
@@ -619,7 +619,7 @@ function setEditAndFile(params, datas)
 
         /*************************** 에디터 내용 등록 ***************************/ 
         params.delete('content');
-        params.append('content', htmlEscape($('.editor-content').summernote('code')));
+        params.append('content', htmlEscape($('#editor-content').summernote('code')));
     }            
 
     /*************************** 파일첨부 등록 및 삭제 ***************************/ 

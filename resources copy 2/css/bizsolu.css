@@ -1,0 +1,5 @@
+.layer-popup {display:block; padding:25px; width:65%; height:60%; background-color:#fff; border:1px solid #e8e8e8; overflow-x:scroll; color:#000;}
+.layer-popup::-webkit-scrollbar {width:4px; height:80%; background-color:#e8e8e8; padding:25px 0;}
+.layer-popup::-webkit-scrollbar-thumb {width:4px; background-color:#aaa;}
+.layer-popup::-webkit-scrollbar-track {width:4px; height:80%; background-color:#e8e8e8;}
+/* .layer-popup .item-data {color:#000;} */

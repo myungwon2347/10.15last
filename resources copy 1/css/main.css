@@ -1,0 +1,472 @@
+/* 전역 CSS에 넣고 싶지만 동기화 문제로 여기다 우선 적어놨음. 이 글을 보면 전역 CSS에 넣어주세요. */
+.pc {display:block;}
+.mobile {display:none;}
+
+.container .ta-main-tit {font-family: 'YonseiB';}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 사이드배너 ************************************************************************************/
+.banner-box {position:absolute; top:282px; width:190px; height:620px;}
+.banner-box a {display:inline-block; width:100%; height:100%;}
+.banner-box a img {width:100% !important; height:100% !important;}
+.left-banner {left:0;}
+.right-banner {right:0;}
+
+/* 사이드배너 끝 ************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 회원가입 ************************************************************************************/
+#container-join .join {width:620px; margin:0 auto 100px;}
+#container-join .join-basic {margin-top:50px;}
+#container-join .form-profile {position: relative; width: 100%; margin-top: 40px;}
+#container-join .form-profile .profile-alert {position: absolute; top: -10px; right: 0px;} 
+#container-join .form-profile .profile-alert > span:nth-child(1) {color: red;}
+#container-join .form-profile .profile-alert > span:nth-child(2) {font-weight:600; font-size:1.143rem;}
+#container-join .form-profile .form-item {display: flex; align-items: center; margin-bottom: 1px; padding:10px 0;}
+#container-join .form-profile .form-item .btn-style {color: #fff; background-color: #FFB518; border-radius:3px; font-weight:bold; border:1px solid #FFB518; padding: 6px 8px; font-size:.85rem; cursor: pointer;}
+#container-join .form-profile .form-item .btn-style.btn-per-check, .form-profile .form-item .btn-style.btn-ipin-check {margin-left:2px;}
+#container-join .form-profile .form-item .item-title {display: flex; align-items: center; width: 20%; height: 100%; font-weight: 600; margin-right: 1px; font-size:1.143rem;}
+#container-join .form-profile .form-item .item-title > span {visibility: hidden; margin-right: 3px; color: red;}
+#container-join .form-profile .form-item .item-title > span.active {visibility: visible;}
+#container-join .form-profile .form-item .item-content {padding-left: 10px; width: 80%; height: 100%; font-size:0;}
+#container-join .form-profile .form-item .item-content .item-btn-layout {width:100%;}
+#container-join .form-profile .form-item .item-content input {border: 1px solid #d6d6d6; padding: 6px 8px; font-size:.9rem;}
+#container-join .form-profile .form-item .item-content select {width:32%; border: 1px solid #d6d6d6; padding: 8px 10px; font-size:.9rem; margin-right:2%;}
+#container-join .form-profile .form-item .item-content select:last-child {margin-right:0;}
+#container-join .form-profile .form-item .item-content input.input-type01 {width: 100%;}
+#container-join .form-profile .form-item .item-content input.input-type02 {width: 50%;}
+#container-join .form-profile .form-item .item-content input.input-type03 {display: block; width: 100%; margin-top: 5px;}
+#container-join .form-profile .form-item .item-content input.input-type04 {width: 100px; margin-right: 10px;}
+#container-join .form-profile .form-item .item-content input.input-type05 {width: 70px; margin: 0 10px;}
+#container-join .form-profile .form-item .item-content select.select-type05 {border: 1px solid #d6d6d6; padding: 5px 10px; width: 90px; margin-right: 10px;}
+#container-join .form-profile .form-item .item-content input.input-type06 {width: 100px; margin-right: 4px; margin-left: 4px;}
+#container-join .form-profile .form-item .item-content input.input-type06:first-child {margin-left: 0;}
+#container-join .form-profile .form-item .item-content input.input-type07 {width: 85%;}
+#container-join .form-profile .form-item .item-content input.input-type08 {width: 70%;}
+#container-join .form-profile .form-item .item-content .desc {font-size:.9rem; color: #717171;}
+#container-join .form-profile .form-item.id {align-items:flex-start;}
+#container-join .form-profile .form-item.password {align-items:flex-start;}
+#container-join .form-profile .form-item.password_chk {}
+#container-join .form-profile .form-item.name {margin-top:40px;}
+#container-join .form-profile .form-item.address {}
+#container-join .form-profile .form-item.address .btn-zipcode {color: #fff; background-color: #FFB518; font-weight:bold; border:1px solid #FFB518; padding: 6px 8px; font-size:.85rem; cursor: pointer;}
+#container-join .form-profile .form-item.address .item-content {flex-direction: column; align-items: flex-start; justify-content: center;}
+#container-join .form-profile .form-item.birth {}
+#container-join .form-profile .form-item.tel {}
+#container-join .form-profile .form-item.tel > .item-content {width:80%; display:flex; align-items:center; justify-content:space-between;}
+/* .form-profile .form-item.tel > .item-content input {width:30%;}
+.form-profile .form-item.tel > .item-content input:last-child {margin-right:0;} */
+#container-join .form-profile .form-item.email {}
+/* 그냥 가져옴 (청원) */
+#container-join .join-sns {margin:80px 0 100px;}
+#container-join .join-sns .page-title {padding:0 0 10px; margin:0 0 50px; font-size:2.5rem; font-weight:700; text-align:center;}
+#container-join .join-agree {margin-top:50px;}
+#container-join .join-agree .check-basic {}
+#container-join .join-agree .check-basic .clause-top {display:flex; align-items:center; justify-content:space-between;}
+#container-join .join-agree .check-basic .clause-top .clause-tit {font-weight:bold;}
+#container-join .join-agree .check-basic:last-child {padding-bottom:0;}
+#container-join .join-agree .check-basic label {display:inline-flex; align-items:center; padding:10px 0;}
+#container-join .join-agree .check-basic label input[type='checkbox'] {display:none; margin-right:5px;}
+#container-join .join-agree .check-basic label .input-box {display:flex; align-items:center; justify-content:center; width:16px; height:16px; border:1px solid #ddd; border-radius:3px; margin-right:4px; transition:.2s;}
+#container-join .join-agree .check-basic label:hover .input-box {border-color:#353535;}
+#container-join .join-agree .check-basic label .input-box i {font-weight:600; color:#353535; transform:scale(0); transition:.2s;}
+#container-join .join-agree .check-basic label input[type='checkbox']:checked+.input-box {border-color:#353535;}
+#container-join .join-agree .check-basic label input[type='checkbox']:checked+.input-box i {transform:scale(1);}
+#container-join .join-agree .check-basic label > p {display:flex; align-items:center; font-size:.9rem;}
+#container-join .join-agree .check-basic .agree-check {display:inline-block; font-size:.7rem; padding:2px 4px; background-color:#eee; margin-left:6px; border-radius:4px; cursor:pointer;}
+#container-join .join-agree .check-basic .clause-txt {display:block; resize:none; width:100%; height:100px; border:1px solid #d6d6d6;padding:6px; font-size:.9rem; transition:all .2s; overflow-y:scroll;}
+/* .join-agree .check-basic .clause-txt.active {height:100px; border:1px solid #ddd; padding:6px;} */
+#container-join .join-agree .all-check {border-bottom:1px solid #eee;}
+/* 그냥 가져옴 끝 (청원) */
+#container-join .join-agree .receive-newsletter {padding-top:50px;}
+/* 버튼 */
+#container-join .form-btn {margin-top: 20px; text-align: center;}
+#container-join .form-btn > button {display: inline-flex; align-items:center; justify-content:center; width:620px; padding: 10px 0; background-color:#2a62ff; color:#fff; font-weight:700;}
+#container-join .font-b {font-weight:bold;}
+#container-join .terms-tit {margin-bottom:30px; font-size: 1.6rem; font-weight:bold;}
+#container-join .terms-des {padding:30px; border:1px solid #d6d6d6;}
+#container-join .terms-des .terms-detail {white-space:pre-line;}
+#container-join .terms-des .terms-detail table, .terms-des .terms-detail th, .terms-des .terms-detail td {border:1px solid #ddd; border-collapse:collapse;}
+#container-join .terms-des .terms-detail th, .terms-des .terms-detail td {padding:5px; text-align:center;}
+#container-join .terms-des .terms-detail td.des-td {text-align:left;}
+
+/* @media screen and (max-width: 768px) {
+    .pc {display:none;}
+    .mobile {display:block;}
+    .container {width: 100%;}
+    .noti {margin:10px 0; color:orangered;}
+
+    #container-join .join {width:100%; margin:0 auto 100px;}
+    #container-join .join-sns {margin:25px 0 60px;}
+    #container-join .join-sns .page-title {font-size:1.7rem;}
+
+    #container-join .form-profile .form-item {flex-direction:column; align-items:flex-start;}
+    #container-join .form-profile .form-item .item-title {width:100%; margin-bottom:8px;}
+    #container-join .form-profile .form-item .item-content {padding:0; width:100%; display:flex; flex:1;}
+    #container-join .form-profile .form-item .item-content input.input-type08 {width:inherit;}
+    #container-join .form-profile .form-item .item-content .item-btn-layout {display:flex; flex:1;}
+    #container-join .form-profile .form-item .item-content .desc {display: none;}
+    #container-join .form-profile .form-item button {word-break:keep-all; margin-left:5px!important;}
+    #container-join .form-profile .form-item.tel > .item-content {width:100%;}
+    #container-join .form-profile .form-item .btn-style.btn-per-check, .form-profile .form-item .btn-style.btn-ipin-check {min-width:80px;}
+} */
+/* 회원가입 끝 ************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 회원정보수정 ************************************************************************************/
+/* 상단 카테고리*/
+.side-left {width:100%; margin-bottom:75px;}
+.side-left .sl-box .sl-title {margin:40px auto 20px;}
+.side-left .sl-box .sl-cate {border-top:1px solid #0B0B0B;}
+.side-left .sl-box .sl-cate ul {display:flex; align-items:center;}
+.side-left .sl-box .sl-cate ul li {display:flex; align-items:center; justify-content:center; border-bottom:1px solid #C6C6C6; border-right:1px solid #C6C6C6; width:calc(100%/4); background: #F8F8F8;}
+.side-left .sl-box .sl-cate ul li:first-child {border-left:1px solid #C6C6C6;}
+.side-left .sl-box .sl-cate ul li a {font-size:1.143rem; display:inline-block; width:100%; height:100%; text-align:center; padding:13px 0;}
+.side-left .sl-box .sl-cate ul li.active {background:#fff; border:0; border-right:1px solid #C6C6C6;}
+.side-left .sl-box .sl-cate ul li:last-child.active {background:#fff; border:0;}
+
+/* 하단 content */
+#container-myinfo #cont-myinfo .page-title {font-size: 30px; font-weight: 600; color: #444;}
+
+#container-myinfo #cont-myinfo .form-profile {position: relative; width: 600px; margin:0 auto;}
+#container-myinfo #cont-myinfo .form-profile .profile-alert {position: absolute; top: -30px; right: 0px;} 
+#container-myinfo #cont-myinfo .form-profile .profile-alert > span:nth-child(1) {color: red;}
+#container-myinfo #cont-myinfo .form-profile .profile-alert > span:nth-child(2) {font-size:.9rem; font-weight:600;}
+
+#container-myinfo #cont-myinfo .form-profile .form-item {display: flex; align-items: center; margin-bottom: 1px; padding:7px 0;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-title {display: flex; align-items: center; width: 15%; height: 100%; font-weight: 700; margin-right: 1px; font-size:1rem;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-title > span {visibility: hidden; margin-right: 3px; color: red;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-title > span.active {visibility: visible;}
+
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content {display: flex; align-items: center; width: 85%; height: 100%; font-size:.9rem;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input {border: 1px solid #e5e5e5; padding: 5px 10px; font-size:1rem; height:35px;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input::placeholder {color:#000;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type01 {width: 25%; border:0; background:#fff; padding-left:0; padding-right:0;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type01::placeholder {color:#0B0B0B;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type02 {width: 139px;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type03 {display: block; width: 500px; margin-top: 5px;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content input::placeholder {color: #8F8F8F;}
+
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content select {border: 1px solid #e5e5e5; padding: 5px 10px; width: 163px; margin-right: 5px; cursor: pointer;}
+#container-myinfo #cont-myinfo .form-profile .form-item .item-content select:last-child {margin-right: 0;}
+
+#container-myinfo #cont-myinfo .form-profile .form-item.id {padding-top:29px;}
+#container-myinfo #cont-myinfo .form-profile .form-item.password {}
+#container-myinfo #cont-myinfo .form-profile .form-item.password_chk {}
+#container-myinfo #cont-myinfo .form-profile .form-item.nickname {margin-bottom:76px;}
+#container-myinfo #cont-myinfo .form-profile .form-item.address {height: 150px;}
+#container-myinfo #cont-myinfo .form-profile .form-item.address .btn-zipcode {display:inline-flex; align-items:center; justify-content:center; width:80px; height:35px; margin-left: 6px; background-color: #FFB518; border: 1px solid #FFB518; border-radius:3px; padding: 5px 10px; cursor: pointer; font-size:1rem; color:#fff;}
+#container-myinfo #cont-myinfo .form-profile .form-item.address .item-content {flex-direction: column; align-items: flex-start; justify-content: center;}
+#container-myinfo #cont-myinfo .form-profile .form-item.birth {}
+#container-myinfo #cont-myinfo .form-profile .form-item.tel {}
+#container-myinfo #cont-myinfo .form-profile .form-item.email {}
+
+
+/* 버튼 */
+#container-myinfo #cont-myinfo .form-btn {display:flex; justify-content:center; align-items:center; margin-top: 80px;}
+#container-myinfo #cont-myinfo .form-btn > div {border: 1px solid #C6C6C6; transition: all .4s;}
+#container-myinfo #cont-myinfo .form-btn > div.cancel-btn {color:#8F8F8F; margin-right:5px;}
+#container-myinfo #cont-myinfo .form-btn > div.mypage-btn {background-color:#ADADAD;}
+#container-myinfo #cont-myinfo .form-btn > div.modify-btn:hover {background:#2A62FF; border:1px solid #2A62FF; color:#fff;}
+#container-myinfo #cont-myinfo .form-btn > div a {display: inline-block; width:100%; height:100%; display:flex; align-items:center; justify-content:center;padding:4px 18px;}
+
+#container-myinfo .leave-wrap {display:flex; align-items:center; width:600px; margin:0 auto;}
+#container-myinfo .leave-wrap .leave-ask {font-size:0.875rem;}
+#container-myinfo .leave-wrap .leave-btn {font-size: 0.875rem; color:#2A62FF; margin-left:8px; margin-bottom:2px;}
+#container-myinfo .leave-wrap .leave-btn a {text-decoration:underline;}
+
+/* @media screen and (max-width: 768px) {
+    #container-myinfo .my-container { width:100%; flex-direction:column; padding:0 20px;}
+    #container-myinfo .comm-tit2 {border-bottom:0; text-align:center;}
+
+    #container-myinfo .side-left {display:none;}
+    #container-myinfo #cont-myinfo .side-right {width:100%;}
+
+    #container-myinfo #cont-myinfo .form-profile .form-item {flex-direction:column;}
+    #container-myinfo #cont-myinfo .form-profile .form-item .item-title {width:100%; padding-left:0; margin-bottom:10px;}
+    #container-myinfo #cont-myinfo .form-profile .form-item .item-content {width:100%;}
+    #container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type01 {width:100%;}
+    #container-myinfo #cont-myinfo .form-profile .form-item .item-content input.input-type03 {width:100%;}
+
+    #container-myinfo .leave-wrap {justify-content:center; margin-top:30px;}
+} */
+/* 회원정보수정 끝 ************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 내가 보낸 쪽지 ************************************************************************************/
+#container-send_list {min-height:auto;}
+#container-send_list .side-right .list-top {display:flex; align-items:center; justify-content:space-between; margin-bottom:13px;}
+#container-send_list .side-right .list-top .list-btn button {display:flex; align-items:center; padding:5px 13px; border:1px solid #C6C6C6; font-size:1rem; color:#8f8f8f;}
+#container-send_list .side-right .list-top .list-btn button > i {color:#FF0000; font-size:.8rem; font-weight:700; margin-top:1px; margin-right:5px;}
+#container-send_list .side-right .list-top .mess-count {color:#8F8F8F; font-size:1rem; display:flex; align-items:center;}
+#container-send_list .side-right .list-top .mess-count > span {margin-left:5px;}
+/* 목록 */
+#container-send_list .list-table {margin:0 0 36px;}
+#container-send_list .list-table .table {display:flex; align-items:center;}
+#container-send_list .list-table .table .table-item {text-align:center; padding:10px 0;}
+#container-send_list .list-table .table .table-item a {display:inline-block; width:100%; height:100%;}
+#container-send_list .list-table .table .item01 {width:5%; display:flex; align-items:center; justify-content:center;}
+#container-send_list .list-table .table .item02 {width:55%;}
+#container-send_list .list-table .table .item03 {width:20%;}
+#container-send_list .list-table .table .item04 {width:20%;}
+#container-send_list .list-table .table.th {border-top:1px solid #C6C6C6; border-bottom:1px solid #C6C6C6; background:#F8F8F8;}
+#container-send_list .list-table .table.th .table-item {font-weight:500;}
+#container-send_list .list-table .table.td {border-bottom: 1px solid #C6C6C6; word-break:keep-all;}
+#container-send_list .list-table .table.td .table-item {font-size:1rem;}
+#container-send_list .list-table .table.td .table-item a {font-size:1rem;color:#000;}
+#container-send_list .list-table .table.td .table-item.item04 div {color:#8f8f8f; font-weight:400;}
+#container-send_list .list-table .table.td .item02 .reply-status {border-radius:3px; width:70px; margin:0 auto; text-align:center; font-size:.9rem;}
+#container-send_list .list-table .table.td .item02 .reply-status.waiting {color:#909090; border:2px solid #919191;padding:4px 12px; }
+#container-send_list .list-table .table.td .item02 .reply-status.complete {color:#ffb518; border:2px solid #ffb518;padding:4px 9px;}
+#container-send_list .pagenation-cont {margin-top:40px;} 
+
+#container-send_list .board-paginate {margin-top:32px;}
+
+/* @media screen and (max-width:768px) {
+  #container-send_list .side-left {display: none;}
+  #container-send_list .comm-tit {text-align:center; margin-bottom:60px; position: relative;}
+  #container-send_list .go-back {font-size:2.5rem; position: absolute; left:0; cursor: pointer;}
+
+  #container-send_list .list-table .table .item01 {width:70%;}
+  #container-send_list .list-table .table .item02 {width:30%;}
+  #container-send_list .list-table .table .item03 {display:none;}
+} */
+/* 목록 끝 */
+
+
+
+
+/* 상세 */
+/* 1:1문의 상세 */
+#container-send_detail .list-top {display:flex; align-items:center; justify-content:space-between; margin-bottom:13px;}
+#container-send_detail .list-top .mess-count {color:#8f8f8f; font-size:1rem; display:flex; align-items:center;}
+
+#container-send_detail .list-table {margin:0 0 10px; border-top:1px solid #555; border-bottom:1px solid #d6d6d6;}
+#container-send_detail .list-table .table {}
+#container-send_detail .list-table .table.th {border-bottom:1px solid #c6c6c6; padding:10px 19px; background:#f8f8f8;}
+#container-send_detail .list-table .table.th div:first-child {margin-bottom:4px;}
+#container-send_detail .list-table .table.th div span:first-child {font-weight:700; margin-right:20px;}
+#container-send_detail .list-table .table .table-item {padding:15px 0; margin:4px;}
+#container-send_detail .list-table .table.td {text-align:left; }
+#container-send_detail .list-table .table.td .table-item {font-size:1rem;text-align:left; line-height:30px; padding:19px;}
+
+/* 1:1문의 답변 */
+#container-send_detail .list-comment .lc-tit {font-weight:700; font-size:1.143rem; line-height:46px; font-family:'Noto Sans KR', sans-serif;}
+#container-send_detail .list-comment .lc-tit span {vertical-align:top;}
+#container-send_detail .list-comment .lc-item {display:block; box-sizing:border-box; background-color:#f8f8f8; border-radius:3px; width:100%; padding:30px;}
+#container-send_detail .list-comment .lc-item .lci-info {display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+#container-send_detail .list-comment .lc-item .lci-info .lci-writer {font-weight:700; font-size:1.143rem; font-family:'Noto Sans KR', sans-serif;}
+#container-send_detail .list-comment .lc-item .lci-info .lci-date {font-weight:400; font-family:'Montserrat',sans-serif; font-size:1.143rem; color:#707070;}
+#container-send_detail .list-comment .lc-item .lci-cont {font-weight:400;font-size:1.143rem; font-family:'Noto Sans KR', sans-serif;line-height:30px;}
+
+#container-send_detail .comm-btn span {display:flex; justify-content:center; align-items:center; padding:5px 13px; border:1px solid #c6c6c6; font-size:1rem; color:#8f8f8f; cursor: pointer;}
+#container-send_detail .list-comment .list-btn a span {display:inline-block;}
+#container-send_detail .comm-btn2 span > i {color:#ff0000; font-size:.8rem; font-weight:700; margin-top:1px; margin-right:5px;}
+
+/* @media screen and (max-width:768px) {
+  #container-send_detail .side-left {display: none;}
+  #container-send_detail .comm-tit {text-align:center; margin-bottom:60px; position: relative;}
+  #container-send_detail .go-back {font-size:2.5rem; position: absolute; left:0;cursor: pointer;}
+  #container-send_detail .list-table .table.th {flex-direction:column; align-items:flex-start; padding:17px 20px; line-height:26px;}
+  #container-send_detail .list-table .table .table-item {margin:0; padding:0;}
+} */
+/* 상세 끝 */
+
+/* 내가 보낸 쪽지 끝 ************************************************************************************/
+
+
+
+
+
+
+
+
+/* 내가 받은 쪽지 ************************************************************************************/
+#container-receive_list {min-height:auto;}
+#container-receive_list .side-right .list-top {display:flex; align-items:center; justify-content:space-between; margin-bottom:13px;}
+#container-receive_list .side-right .list-top .list-btn button {display:flex; align-items:center; padding:5px 13px; border:1px solid #C6C6C6; font-size:1rem; color:#8f8f8f;}
+#container-receive_list .side-right .list-top .list-btn button > i {color:#FF0000; font-size:.8rem; font-weight:700; margin-top:1px; margin-right:5px;}
+#container-receive_list .side-right .list-top .mess-count {color:#8F8F8F; font-size:1rem; display:flex; align-items:center;}
+#container-receive_list .side-right .list-top .mess-count > span {margin:0 5px;}
+#container-receive_list .side-right .list-top .mess-count > span:nth-child(1) {color:#2A62FF;}
+
+/* 목록 */
+#container-receive_list .list-table {margin:0 0 36px;}
+#container-receive_list .list-table .table {display:flex; align-items:center;}
+#container-receive_list .list-table .table .table-item {text-align:center; padding:10px 0;}
+#container-receive_list .list-table .table .table-item.no-read-item a {font-weight:700;}
+#container-receive_list .list-table .table .table-item a {display:inline-block; width:100%; height:100%;}
+#container-receive_list .list-table .table .item01 {width:5%; display:flex; align-items:center; justify-content:center;}
+#container-receive_list .list-table .table .item02 {width:55%;}
+#container-receive_list .list-table .table .item03 {width:20%;}
+#container-receive_list .list-table .table .item04 {width:20%;}
+#container-receive_list .list-table .table.th {border-top:1px solid #C6C6C6; border-bottom:1px solid #C6C6C6; background:#F8F8F8;}
+#container-receive_list .list-table .table.th .table-item {font-weight:500;}
+#container-receive_list .list-table .table.td {border-bottom: 1px solid #C6C6C6; word-break:keep-all;}
+#container-receive_list .list-table .table.td .table-item {font-size:1rem;}
+#container-receive_list .list-table .table.td .table-item a {font-size:1rem;color:#000;}
+#container-receive_list .list-table .table.td .table-item.item04 div {color:#8f8f8f; font-weight:400;}
+#container-receive_list .list-table .table.td .item02 .reply-status {border-radius:3px; width:70px; margin:0 auto; text-align:center; font-size:.9rem;}
+#container-receive_list .list-table .table.td .item02 .reply-status.waiting {color:#909090; border:2px solid #919191;padding:4px 12px; }
+#container-receive_list .list-table .table.td .item02 .reply-status.complete {color:#ffb518; border:2px solid #ffb518;padding:4px 9px;}
+#container-receive_list .pagenation-cont {margin-top:40px;} 
+
+#container-send_list .board-paginate {margin-top:32px;}
+
+/* @media screen and (max-width:768px) {
+  #container-receive_list .side-left {display: none;}
+  #container-receive_list .comm-tit {text-align:center; margin-bottom:60px; position: relative;}
+  #container-receive_list .go-back {font-size:2.5rem; position: absolute; left:0; cursor: pointer;}
+
+  #container-receive_list .list-table .table .item01 {width:70%;}
+  #container-receive_list .list-table .table .item02 {width:30%;}
+  #container-receive_list .list-table .table .item03 {display:none;}
+} */
+/* 목록 끝 */
+
+
+
+
+/* 상세 */
+/* 1:1문의 상세 */
+#container-receive_detail .list-top {display:flex; align-items:center; justify-content:space-between; margin-bottom:13px;}
+#container-receive_detail .list-top .mess-count {color:#8f8f8f; font-size:1rem; display:flex; align-items:center;}
+#container-receive_detail .side-right .list-top .mess-count > span {margin:0 5px;}
+#container-receive_detail .side-right .list-top .mess-count > span#count-getListMessage {color:#2A62FF;}
+
+#container-receive_detail .list-table {margin:0 0 10px; border-top:1px solid #555; border-bottom:1px solid #d6d6d6;}
+#container-receive_detail .list-table .table {}
+#container-receive_detail .list-table .table.th {border-bottom:1px solid #c6c6c6; padding:10px 19px; background:#f8f8f8;}
+#container-receive_detail .list-table .table.th div:first-child {margin-bottom:4px;}
+#container-receive_detail .list-table .table.th div span:first-child {font-weight:700; margin-right:20px;}
+#container-receive_detail .list-table .table .table-item {padding:15px 0; margin:4px;}
+#container-receive_detail .list-table .table.td {text-align:left; }
+#container-receive_detail .list-table .table.td .table-item {font-size:1rem;text-align:left; line-height:30px; padding:19px;}
+
+/* 1:1문의 답변 */
+#container-receive_detail .list-comment .lc-tit {font-weight:700; font-size:1.143rem; line-height:46px; font-family:'Noto Sans KR', sans-serif;}
+#container-receive_detail .list-comment .lc-tit span {vertical-align:top;}
+#container-receive_detail .list-comment .lc-item {display:block; box-sizing:border-box; background-color:#f8f8f8; border-radius:3px; width:100%; padding:30px;}
+#container-receive_detail .list-comment .lc-item .lci-info {display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+#container-receive_detail .list-comment .lc-item .lci-info .lci-writer {font-weight:700; font-size:1.143rem; font-family:'Noto Sans KR', sans-serif;}
+#container-receive_detail .list-comment .lc-item .lci-info .lci-date {font-weight:400; font-family:'Montserrat',sans-serif; font-size:1.143rem; color:#707070;}
+#container-receive_detail .list-comment .lc-item .lci-cont {font-weight:400;font-size:1.143rem; font-family:'Noto Sans KR', sans-serif;line-height:30px;}
+
+#container-receive_detail .list-btn {display:flex; align-items:center; justify-content:space-between;}
+#container-receive_detail .comm-btn span {display:flex; justify-content:center; align-items:center; padding:5px 13px; border:1px solid #c6c6c6; font-size:1rem; color:#8f8f8f; cursor: pointer;}
+#container-receive_detail .list-comment .list-btn a span {display:inline-block;}
+#container-receive_detail .comm-btn2 span > i {color:#ff0000; font-size:.8rem; font-weight:700; margin-top:1px; margin-right:5px;}
+#container-receive_detail .reply-btn span {border:1px solid #2A62FF; background:#2A62FF; color:#fff; transition:all .4s;}
+#container-receive_detail .reply-btn span:hover {border:1px solid #2A62FF; background:#fff; color:#2A62FF;}
+
+
+
+/* @media screen and (max-width:768px) {
+  #container-receive_detail .side-left {display: none;}
+  #container-receive_detail .comm-tit {text-align:center; margin-bottom:60px; position: relative;}
+  #container-receive_detail .go-back {font-size:2.5rem; position: absolute; left:0;cursor: pointer;}
+  #container-receive_detail .list-table .table.th {flex-direction:column; align-items:flex-start;  padding:17px 20px; line-height:26px;}
+  #container-receive_detail .list-table .table .table-item {margin:0; padding:0;}
+} */
+/* 상세 끝 */
+
+
+
+/* 내가 받은 쪽지 끝 ************************************************************************************/
+
+
+
+@media screen and (max-width:768px) {
+/* 공통 ************************************************************************************/
+    .pc {display:none !important;}
+    .mobile {display:block;}
+
+    .container {width:100%; /*padding:100px 0; margin:102px 0 38px;*/ min-height:auto;}
+    .middle-cont {width:100%; margin:0 auto;}
+    .middle-cont .ta-main-tit {padding:0; font-size:1.143rem;}
+    .middle-cont .list-table {padding:0 20px;}
+    .my-container { width:100%; flex-direction:column; padding:0;}
+    .side-left {display: none;}
+    .comm-tit {text-align:center; margin-bottom:60px; position: relative;}
+    .go-back {font-size:2.5rem; position: absolute; left:0; cursor:pointer;}
+    .xi-angle-left-min {display:inline-block!important;}
+    .pagenation-cont {margin-top:40px;}
+
+/* 공통 끝 ************************************************************************************/
+
+    /* 상단 배너 */
+    .banner-box {position:revert; width:100%; height:90px;}
+
+
+/* 회원가입 ************************************************************************************/
+    #container-join .join {width:100%; padding:0 20px;}
+    #container-join .join-sns {margin:130px 0 100px;}
+    
+    #container-join .join-basic {margin-top:0;}
+    #container-join .form-profile .form-item {display:revert;}
+    #container-join .form-profile .form-item .item-content {padding-left:0; width:100%;}
+    #container-join .form-profile .form-item .item-title {display:revert; margin-bottom:15px; width:100%;}
+    #container-join .form-profile .form-item.tel > .item-content {width:100%;}
+    #container-join .form-profile .form-item .item-content input.input-type01 {margin-bottom:2px;}
+
+    #container-join .form-btn > button {width:100%;}
+
+/* 회원가입 끝 ************************************************************************************/
+
+}

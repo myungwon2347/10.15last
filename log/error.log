@@ -1,0 +1,86 @@
+[15-Oct-2021 17:47:02 Asia/Seoul] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'free_board' in C:\dev\Apache24\htdocs2\test\lib\db.php on line 6
+[15-Oct-2021 17:47:02 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\index.php on line 4
+[15-Oct-2021 17:47:02 Asia/Seoul] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in C:\dev\Apache24\htdocs2\test\index.php on line 5
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'free_board' in C:\dev\Apache24\htdocs2\test\lib\db.php on line 6
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_data.php on line 9
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in C:\dev\Apache24\htdocs2\test\view\board.php on line 30
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 8
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 15
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 16
+[15-Oct-2021 17:47:04 Asia/Seoul] PHP Notice:  Undefined variable: num1 in C:\dev\Apache24\htdocs2\test\view\board.php on line 59
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_connect(): (HY000/1049): Unknown database 'free_board' in C:\dev\Apache24\htdocs2\test\lib\db.php on line 6
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_data.php on line 9
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in C:\dev\Apache24\htdocs2\test\view\board.php on line 30
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 8
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 15
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in C:\dev\Apache24\htdocs2\test\lib\fb_paging_sheet.php on line 16
+[15-Oct-2021 17:47:17 Asia/Seoul] PHP Notice:  Undefined variable: num1 in C:\dev\Apache24\htdocs2\test\view\board.php on line 59
+[15-Oct-2021 18:25:07 Asia/Seoul] PHP Warning:  require_once(C:/dev/Apache24/htdocs2/view/common/layout/header.php): failed to open stream: No such file or directory in C:\dev\Apache24\htdocs2\view\common\page\board\profile\list.php on line 33
+[15-Oct-2021 18:25:07 Asia/Seoul] PHP Fatal error:  require_once(): Failed opening required 'C:/dev/Apache24/htdocs2/view/common/layout/header.php' (include_path='.;C:\php\pear') in C:\dev\Apache24\htdocs2\view\common\page\board\profile\list.php on line 33
+[15-Oct-2021 18:25:30 Asia/Seoul] PHP Warning:  require_once(C:/dev/Apache24/htdocs2/view/common/page/board/left-banner.php): failed to open stream: No such file or directory in C:\dev\Apache24\htdocs2\view\common\page\board\profile\list.php on line 48
+[15-Oct-2021 18:25:30 Asia/Seoul] PHP Fatal error:  require_once(): Failed opening required 'C:/dev/Apache24/htdocs2/view/common/page/board/left-banner.php' (include_path='.;C:\php\pear') in C:\dev\Apache24\htdocs2\view\common\page\board\profile\list.php on line 48
+[15-Oct-2021 18:26:06 Asia/Seoul] PHP Warning:  require_once(C:/dev/Apache24/htdocs2/view/common/layout/header.php): failed to open stream: No such file or directory in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 35
+[15-Oct-2021 18:26:06 Asia/Seoul] PHP Fatal error:  require_once(): Failed opening required 'C:/dev/Apache24/htdocs2/view/common/layout/header.php' (include_path='.;C:\php\pear') in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 35
+[15-Oct-2021 18:33:03 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 450
+[15-Oct-2021 18:33:03 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 591
+[15-Oct-2021 18:33:03 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 673
+[15-Oct-2021 18:33:07 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 450
+[15-Oct-2021 18:33:07 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 591
+[15-Oct-2021 18:33:07 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 673
+[15-Oct-2021 18:33:08 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 450
+[15-Oct-2021 18:33:08 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 591
+[15-Oct-2021 18:33:08 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 673
+[15-Oct-2021 18:33:14 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 450
+[15-Oct-2021 18:33:14 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 591
+[15-Oct-2021 18:33:14 Asia/Seoul] PHP Notice:  Undefined index: login_user in C:\dev\Apache24\htdocs2\view\common\page\board\profile\detail.php on line 673
+[15-Oct-2021 19:18:38 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:18:43 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:34 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:36 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:36 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:37 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:37 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:39 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:40 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:19:51 Asia/Seoul] PHP Fatal error:  Uncaught Error: Class 'service\Visiter' not found in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 33
+[15-Oct-2021 19:23:32 Asia/Seoul] PHP Notice:  Undefined index: myung in C:\dev\Apache24\htdocs2\api\admin\visiter.php on line 101
+[15-Oct-2021 19:23:32 Asia/Seoul] PHP Notice:  Undefined index: myung in C:\dev\Apache24\htdocs2\api\admin\visiter.php on line 127
+[15-Oct-2021 19:28:06 Asia/Seoul] PHP Notice:  Undefined index: myung in C:\dev\Apache24\htdocs2\api\admin\visiter.php on line 101
+[15-Oct-2021 19:28:06 Asia/Seoul] PHP Notice:  Undefined index: myung in C:\dev\Apache24\htdocs2\api\admin\visiter.php on line 127
+[15-Oct-2021 19:29:14 Asia/Seoul] PHP Notice:  Undefined index: myung in C:\dev\Apache24\htdocs2\api\admin\visiter.php on line 101
+[15-Oct-2021 19:29:46 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
+[15-Oct-2021 19:29:46 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
+[15-Oct-2021 19:30:14 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
+[15-Oct-2021 19:30:14 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
+[15-Oct-2021 19:32:45 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
+[15-Oct-2021 19:32:45 Asia/Seoul] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\dev\Apache24\htdocs2\view\admin\page\visiter\visitlog.php on line 215
